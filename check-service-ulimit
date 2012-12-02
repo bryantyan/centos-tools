@@ -1,0 +1,12 @@
+#!/bin/bash
+
+SELF=`basename $0`
+ARGV=$@
+SERVICE=$1
+
+for pid in `ps aux | grep ${SERVICE}| grep -v ${SELF}| grep -v grep |awk '{print $2}'`
+do
+    echo ${pid}
+    #cat /proc/${pid}/limits | grep 'Max open files'
+done   
+
