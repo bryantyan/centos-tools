@@ -11,7 +11,7 @@ EOF
 fi
 
 
-for pid in `ps ax | grep ${SERVICE}| grep -v ${SELF}| grep -v grep |awk '{print $2}'`
+for pid in `ps ax | grep ${SERVICE}| grep -v ${SELF}| grep -v grep |awk '{print $1}'`
 do
     sudo cat /proc/${pid}/limits | grep 'Max open files'
 done   
