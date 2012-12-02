@@ -6,6 +6,6 @@ SERVICE=$1
 
 for pid in `ps aux | grep ${SERVICE}| grep -v ${SELF}| grep -v grep |awk '{print $2}'`
 do
-    cat /proc/${pid}/limits | grep 'Max open files'
+    sudo cat /proc/${pid}/limits | grep 'Max open files'
 done   
 
