@@ -1,14 +1,14 @@
 #!/bin/bash
 
+if [ $# != 1 ]
+then
+    echo "usage: ${SELF} service"
+    exit;
+fi
+
+
 SELF=`basename $0`
 SERVICE=$1
-if [ -z "$1" ]
-then
-    cat <<EOF
-usage: ${SELF} service
-EOF
-    exit
-fi
 
 
 for pid in `ps ax | grep ${SERVICE}| grep -v ${SELF}| grep -v grep |awk '{print $1}'`
