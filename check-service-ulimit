@@ -4,7 +4,7 @@ SELF=`basename $0`
 ARGV=$@
 SERVICE=$1
 
-for pid in `ps aux | grep ${SERVICE}| grep -v ${SELF}| grep -v grep |awk '{print $2}'`
+for pid in `ps ax | grep ${SERVICE}| grep -v ${SELF}| grep -v grep |awk '{print $2}'`
 do
     sudo cat /proc/${pid}/limits | grep 'Max open files'
 done   
